@@ -1,0 +1,1 @@
+docker push philjhale/gcp-observability-sample-app
