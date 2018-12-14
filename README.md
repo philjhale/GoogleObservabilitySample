@@ -1,6 +1,6 @@
 # Google Cloud Platform observability sample app
 
-The purpose of this repository is to evaluate Stackdriver's ability to observe applications deployed in Kubernetes.
+The purpose of this repository is to evaluate Stackdriver's tracing and logging features when an application is deployed to Google Kubernetes engine.
 
 ## Prerequisites
 
@@ -16,13 +16,14 @@ Mac
 Windows
  * You're on your own. Probably Docker and Minikube
  
- ## Instrumenting Stackdriver tracing and logging
+ 
+## Instrumenting Stackdriver tracing and logging
  
  Follow the instructions [here](https://cloud.google.com/dotnet/docs/stackdriver).
  
- ## Creating a cluster
+## Creating a cluster
  
- The following instructions are taken mostly from [here](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster)
+ The following instructions are taken mostly from [here](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster).
  
  Install the [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-interactive) and set your default project and region.
  
@@ -57,9 +58,3 @@ Windows
 ## Troubleshooting
 
 * Error message ```Cannot schedule pods: Insufficient cpu.```. The amount of CPU required by your pods is greater than the CPU in your cluster. Adding a new node pool should fix the problem.
-
-TODO
-
-https://cloud.google.com/monitoring/kubernetes-engine/installing
-
-Enable error reporting https://cloud.google.com/error-reporting/docs/setup/dotnet
