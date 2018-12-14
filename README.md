@@ -16,17 +16,21 @@ Mac
 Windows
  * You're on your own. Probably Docker and Minikube
  
+ ## Instrumenting Stackdriver tracing and logging
  
- ## Steps
+ Follow the instructions [here](https://cloud.google.com/dotnet/docs/stackdriver).
  
- See [creating a cluster](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster)
+ ## Creating a cluster
+ 
+ The following instructions are taken mostly from [here](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster)
  
  Install the [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-interactive) and set your default project and region.
  
  Create a cluster. Command reference [here](https://cloud.google.com/sdk/gcloud/reference/container/clusters/create).
+ The ```--scopes``` parameter [enables error reporting](https://cloud.google.com/error-reporting/docs/setup/dotnet).
  
  ```
- gcloud container clusters create observability-test-cluster --num-nodes 1
+ gcloud container clusters create observability-test-cluster --num-nodes 1 --scopes https://www.googleapis.com/auth/cloud-platform
  ```
  
  Set the kubectl context to the new cluster.
@@ -50,3 +54,8 @@ Windows
  Navigate to ```http://publicIP:4000/api/dog``` to test.
 
 
+TODO
+
+https://cloud.google.com/monitoring/kubernetes-engine/installing
+
+Enable error reporting https://cloud.google.com/error-reporting/docs/setup/dotnet
