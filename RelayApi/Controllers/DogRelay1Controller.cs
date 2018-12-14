@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace ObservabilitySampleApp.WebApi.Controllers
+namespace ObservabilitySampleApp.RelayApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -20,7 +18,6 @@ namespace ObservabilitySampleApp.WebApi.Controllers
             this._logger = logger;
         }
         
-        // GET api/dog
         [HttpGet]
         public async Task<IActionResult> Get()
         {

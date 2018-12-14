@@ -54,6 +54,10 @@ Windows
  Navigate to ```http://publicIP:4000/api/dog``` to test.
 
 
+## Troubleshooting
+
+* Error message ```Cannot schedule pods: Insufficient cpu.```. The amount of CPU required by your pods is greater than the CPU in your cluster. Adding a new node pool should fix the problem.
+
 TODO
 
 https://cloud.google.com/monitoring/kubernetes-engine/installing

@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: observability-sample-relay-deployment
+  labels:
+    app: observability-sample-relay-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: observability-sample-relay
+  template:
+    metadata:
+      labels:
+        app: observability-sample-relay
+    spec:
+      containers:
+      - name: observability-sample-relay
+        image: philjhale/gcp-observability-sample-relay-app:latest
+        ports:
+        - containerPort: 80 # port exposed by container
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: observability-sample-relay-service
+  labels:
+    app: observability-sample-relay-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 4000 # load balancer port (i.e. the public port)
+    targetPort: 80 # connect to contains on this port
+    protocol: TCP
+  selector:
+    app: observability-sample-relay # must point to pod label
